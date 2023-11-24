@@ -27,17 +27,14 @@
             <input type="text" name="gia" class="form-control">
             <label for="name">HÌNH ẢNH</label>
             <input type="file" name="img"  class="form-control">
-            
-            <label for="theloai">THỂ LOẠI</label>
-            
-            <select name="theloai">
-                    <option value="">Tất cả</option>
-                    <option value="">Văn Học</option>
-                    <option value="">Giáo Dục</option>
-                    <option value="">Khoa học-Viễn tưởng</option>
-                    <option value="">Văn Học</option>
-              
-            </select>
+            <label for="id_the_loai">THỂ LOẠI</label>
+                    <select id="id_the_loai" name="id_the_loai">
+                        <option value="" > tất cả</option>
+                        <?php 
+                        foreach ($the_loais as $the_loai): ?>
+                        <option value="<?php echo $the_loai['id']; ?>"><?php echo $the_loai['ten']; ?></option>
+                        <?php endforeach; ?>
+                    </select><br>
 
             <button type="submit" name="btn-submit" class="btn btn-info mt-3">Submit</button>
             <a href="/admin/categories" class="btn btn-primary mt-3">Quay lại danh sách</a>

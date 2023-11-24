@@ -25,7 +25,7 @@
             <label for="name">GIÁ</label>
             <input type="text" name="gia" class="form-control" value="<?= $category['gia'] ?>">
             <label for="name">HÌNH ẢNH</label>
-            <input type="file" name="img"  class="form-control" value="<?= $category['img'] ?>">
+            <input type="file" name="img"  class="form-control" value="<?=$img ?>">
             <label for="id_the_loai">THỂ LOẠI</label>
                     <select id="id_the_loai" name="id_the_loai">
                         <?php 
