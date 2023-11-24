@@ -1,15 +1,15 @@
 <?php
 
-namespace Ductong\BaseMvc\Models;
+namespace Fpt\Duan1\Models;
 
-use Ductong\BaseMvc\Model;
+use Fpt\Duan1\Model;
 
 class User extends Model {
-    protected $table = 'users';
+    protected $table = 'khachhang';
     protected $columns = [
-        'name',
+        'ten',
         'email',
-        'address',
-        'password',
+        'diachi',
+        'matkhau',
     ];
 }

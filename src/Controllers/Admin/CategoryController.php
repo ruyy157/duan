@@ -1,24 +1,30 @@
 <?php 
 
-namespace Ductong\BaseMvc\Controllers\Admin;
+namespace Fpt\Duan1\Controllers\Admin;
 
-use Ductong\BaseMvc\Controller;
-use Ductong\BaseMvc\Models\Category;
+use Fpt\Duan1\Controller;
+
+use Fpt\Duan1\Models\Category;
+use Fpt\Duan1\Models\Theloai;
 
 class CategoryController extends Controller {
 
     /* Lấy danh sách */
     public function index() {
         $categories = (new Category())->all();
-
-        $this->render("admin/categories/index", ["categories" => $categories]);
+        $this->renderAdmin("categories/index", ["categories" => $categories]);
     }
 
     /* Thêm mới */
     public function create() {
         if (isset($_POST["btn-submit"])) { 
             $data = [
-                'name' => $_POST['name'],
+                'tensach' => $_POST['tensach'],
+                'tacgia' => $_POST['tacgia'],
+                'mota' => $_POST['mota'],
+                'gia' => $_POST['gia'],
+                'img' => $_POST['img'],
+                
             ];
 
             (new Category())->insert($data);
@@ -26,15 +32,21 @@ class CategoryController extends Controller {
             header('Location: /admin/categories');
         }
 
-        $this->render("admin/categories/create");
+        $this->renderAdmin("categories/create");
     }
 
+    
     /* Cập nhật */
     public function update() {
-
+        $the_loais = (new Theloai())->all();
         if (isset($_POST["btn-submit"])) { 
             $data = [
-                'name' => $_POST['name'],
+                'tensach' => $_POST['tensach'],
+                'tacgia' => $_POST['tacgia'],
+                'mota' => $_POST['mota'],
+                'gia' => $_POST['gia'],
+                'img' => $_POST['img'],
+                'id_the_loai' => $_POST['id_the_loai']
             ];
 
             $conditions = [
@@ -46,7 +58,9 @@ class CategoryController extends Controller {
 
         $category = (new Category())->findOne($_GET["id"]);
 
-        $this->render("admin/categories/update", ["category" => $category]);
+        $this->renderAdmin("categories/update", [
+            "the_loais" => $the_loais, "category" => $category
+        ]);
     }
 
     /* Xóa */

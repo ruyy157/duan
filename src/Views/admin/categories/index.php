@@ -21,14 +21,23 @@
         <table class="table">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Action</th>
+                <th>TÊN SÁCH</th>
+                <th>TÁC GIẢ</th>
+                <th>MÔ TẢ</th>
+                <th>GIÁ</th>
+                <th>ẢNH</th>
+                <th>THỂ LOẠI</th>
             </tr>
 
             <?php foreach ($categories as $category) : ?>
                 <tr>
                     <td><?= $category['id'] ?></td>
-                    <td><?= $category['name'] ?></td>
+                    <td><?= $category['tensach'] ?></td>
+                    <td><?= $category['tacgia'] ?></td>
+                    <td><?= $category['mota'] ?></td>
+                    <td><?= $category['gia'] ?></td>
+                    <td><?= $category['img'] ?></td>
+                    <td><?= $category['id_the_loai'] ?></td>
                     <td>
                         <a href="/admin/categories/update?id=<?= $category['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
                         

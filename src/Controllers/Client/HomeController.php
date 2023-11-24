@@ -1,8 +1,8 @@
 <?php
 
-namespace Ductong\BaseMvc\Controllers\Client;
+namespace Fpt\Duan1\Controllers\Client;
 
-use Ductong\BaseMvc\Controller;
+use Fpt\Duan1\Controller;
 
 class HomeController extends Controller
 {

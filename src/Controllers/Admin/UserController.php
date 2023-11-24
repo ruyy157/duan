@@ -1,9 +1,9 @@
 <?php
 
-namespace Ductong\BaseMvc\Controllers\Admin;
+namespace Fpt\Duan1\Controllers\Admin;
 
-use Ductong\BaseMvc\Controller;
-use Ductong\BaseMvc\Models\User;
+use Fpt\Duan1\Controller;
+use Fpt\Duan1\Models\User;
 
 class UserController extends Controller
 {
@@ -13,16 +13,16 @@ class UserController extends Controller
     public function index() {
         $users = (new User)->all();
         
-        $this->render('admin/users/index', ['users' => $users]);
+        $this->renderAdmin('users/index', ['users' => $users]);
     }
 
     public function create() {
         if (isset($_POST['btn-submit'])) { 
             $data = [
-                'name' => $_POST['name'],
-                'address' => $_POST['address'],
+                'ten' => $_POST['ten'],
+                'diachi' => $_POST['diachi'],
                 'email' => $_POST['email'],
-                'password' => $_POST['password'],
+                'matkhau' => $_POST['matkhau'],
             ];
 
             (new User)->insert($data);
@@ -30,16 +30,16 @@ class UserController extends Controller
             header('Location: /admin/users');
         }
 
-        $this->render('admin/users/create');
+        $this->renderAdmin('users/create');
     }
 
     public function update() {
         if (isset($_POST['btn-submit'])) { 
             $data = [
-                'name' => $_POST['name'],
-                'address' => $_POST['address'],
+                'ten' => $_POST['ten'],
+                'diachi' => $_POST['diachi'],
                 'email' => $_POST['email'],
-                'password' => $_POST['password'],
+                'matkhau' => $_POST['matkhau'],
             ];
 
             $conditions = [
@@ -51,7 +51,7 @@ class UserController extends Controller
 
         $user = (new User)->findOne($_GET['id']);
 
-        $this->render('admin/users/update', ['user' => $user]);
+        $this->renderAdmin('users/update', ['user' => $user]);
     }
 
     public function delete() {
