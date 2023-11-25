@@ -17,11 +17,27 @@
         <h1>Tạo mới Category</h1>
 
         <form action="" method="post">
-            <label for="name">Name</label>
-            <input type="text" name="name" class="form-control">
+            <label for="tensach">TÊN</label>
+            <input type="text" name="tensach" class="form-control">
+            <label for="tacgia">TÁC GIẢ</label>
+            <input type="text" name="tacgia" class="form-control">
+            <label for="mota">MÔ TẢ</label>
+            <input type="text" name="mota"  class="form-control">
+            <label for="name">GIÁ</label>
+            <input type="text" name="gia" class="form-control">
+            <label for="name">HÌNH ẢNH</label>
+            <input type="file" name="img"  class="form-control">
+            <label for="id_the_loai">THỂ LOẠI</label>
+                    <select id="id_the_loai" name="id_the_loai">
+                        <option value="" > tất cả</option>
+                        <?php 
+                        foreach ($the_loais as $the_loai): ?>
+                        <option value="<?php echo $the_loai['id']; ?>"><?php echo $the_loai['ten']; ?></option>
+                        <?php endforeach; ?>
+                    </select><br>
 
             <button type="submit" name="btn-submit" class="btn btn-info mt-3">Submit</button>
-            <a href="/admin/categories" class="btn btn-primary mt-3">Quay lại d/s</a>
+            <a href="/admin/categories" class="btn btn-primary mt-3">Quay lại danh sách</a>
         </form>
     </div>
 </body>

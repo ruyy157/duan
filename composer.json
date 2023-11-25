@@ -1,8 +1,8 @@
 {
-    "name": "ductong/base-mvc",
+    "name": "fpt/base-mvc",
     "autoload": {
         "psr-4": {
-            "Ductong\\BaseMvc\\": "src/"
+            "Fpt\\Duan1\\": "src/"
         },
         "files": [
             "global.php"
@@ -10,8 +10,8 @@
     },
     "authors": [
         {
-            "name": "Tống Văn Đức",
-            "email": "tongduc315@gmail.com"
+            "name": "Chu Thi Duyen",
+            "email": "chuthiduyen2202@gmail.com"
         }
     ],
     "require": {}

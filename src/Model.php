@@ -1,6 +1,6 @@
 <?php
 
-namespace Ductong\BaseMvc;
+namespace Fpt\Duan1;
 
 class Model
 {
@@ -28,7 +28,7 @@ class Model
 
     public function findOne($id)
     {
-        $sql = "SELECT * FROM {$this->table} WHERE id = :id LIMIT 1";
+        $sql = "SELECT * FROM {$this->table} WHERE id= :id LIMIT 1";
 
         $stmt = $this->conn->prepare($sql);
 
@@ -50,6 +50,7 @@ class Model
         $stmt->execute();
 
         $stmt->setFetchMode(\PDO::FETCH_ASSOC);
+        
 
         return $stmt->fetchAll();
     }

@@ -1,12 +1,17 @@
 <?php
 
-namespace Ductong\BaseMvc\Models;
+namespace Fpt\Duan1\Models;
 
-use Ductong\BaseMvc\Model;
+use Fpt\Duan1\Model;
 
 class Category extends Model {
-    protected $table = 'categories';
+    protected $table = 'sach';
     protected $columns = [
-        'name',
+        'tensach',
+        'tacgia',
+        'mota',
+        'gia',
+        'img',
+        'id_the_loai'
     ];
 }

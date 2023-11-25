@@ -1,6 +1,6 @@
 <?php
 
-namespace Ductong\BaseMvc;
+namespace Fpt\Duan1;
 
 class Router {
     protected $routes = [];

@@ -21,20 +21,46 @@
         <table class="table">
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Action</th>
+                <th>TÊN SÁCH</th>
+                <th>TÁC GIẢ</th>
+                <th>MÔ TẢ</th>
+                <th>GIÁ</th>
+                <th>ẢNH</th>
+                <th>THỂ LOẠI</th>
+                <th></th>
             </tr>
 
-            <?php foreach ($categories as $category) : ?>
+            <?php
+                foreach ($categories as $category) :
+                    $imgPath = "../upload/" . $category['img'];
+                    if (is_file($imgPath)) {
+                        $img = "<img src='" . $imgPath . "' height='80'>";
+                    } else {
+                        $img = "Ảnh không tồn tại";
+                    }
+                ?>
                 <tr>
                     <td><?= $category['id'] ?></td>
-                    <td><?= $category['name'] ?></td>
+                    <td><?= $category['tensach'] ?></td>
+                    <td><?= $category['tacgia'] ?></td>
+                    <td><?= $category['mota'] ?></td>
+                    <td><?= $category['gia'] ?></td>
+                    <td><?= $img ?></td>
+                    
+                    <?php 
+                        foreach ($the_loais as $the_loai): ?>
+                    <?php if ($category['id_the_loai'] == $the_loai['id']): ?>
+                    <td><?= $the_loai['ten'] ?></td>
+                    <?php endif; ?>
+                        <?php endforeach; ?>
+                    
                     <td>
                         <a href="/admin/categories/update?id=<?= $category['id'] ?>" class="btn btn-primary btn-sm">Cập nhật</a>
                         
                         <form action="/admin/categories/delete?id=<?= $category['id'] ?>" method="post">
                             <button type="submit" onclick="return confirm('Bạn có chắc chắn xóa?');" 
                                                     class="btn btn-danger btn-sm">Xóa</button>
+                       </td>
                         </form>
                     </td>
                 </tr>
