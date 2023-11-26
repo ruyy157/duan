@@ -29,7 +29,7 @@ class CategoryController extends Controller {
                 'img' => $_FILES['img']['name'],
                 'id_the_loai' => $_POST['id_the_loai']
             ];
-            $target_dir = '../upload/';
+            $target_dir = './upload/';
             $target_file = $target_dir . basename($_FILES['img']['name']);
 
             if (move_uploaded_file($_FILES['img']['tmp_name'], $target_file)) {
@@ -57,9 +57,17 @@ class CategoryController extends Controller {
                 'tacgia' => $_POST['tacgia'],
                 'mota' => $_POST['mota'],
                 'gia' => $_POST['gia'],
-                'img' => $_POST['img'],
+                'img' => $_FILES['img']['name'],
                 'id_the_loai' => $_POST['id_the_loai']
             ];
+            $target_dir = './upload/';
+            $target_file = $target_dir . basename($_FILES['img']['name']);
+
+            if (move_uploaded_file($_FILES['img']['tmp_name'], $target_file)) {
+                echo 'File đã được tải lên thành công.';
+            } else {
+                echo 'Có lỗi khi tải lên file.';
+            }
 
             $conditions = [
                 ['id', '=', $_GET['id']],
