@@ -26,7 +26,7 @@
                         <span class="pcoded-micon">
                             <i class="feather icon-layers"></i>
                         </span>
-                        <span class="pcoded-mtext">Quản lý Danh mục</span>
+                        <span class="pcoded-mtext">Quản lý Sản phẩm</span>
                     </a>
                 </li>
                 <li class>
